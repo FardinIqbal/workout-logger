@@ -1,5 +1,11 @@
+// frontend/src/components/Dashboard.js
+
 import React from 'react';
 
+/**
+ * Dashboard component
+ * Displays a welcome message and brief description for the dashboard
+ */
 const Dashboard = () => {
   return (
     <div>
