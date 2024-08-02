@@ -1,124 +1,79 @@
 # Workout Logger
 
-## Description
-A minimalistic web application to log workouts, track progress, and view workout history. This project is developed iteratively, starting with basic functionalities and progressively adding more features.
+This is a workout logging application built with React for the frontend and Flask for the backend. The application allows users to register, log in, and track their workouts.
 
-## Version 1 Goals
-1. Basic user registration and login.
-2. Logging workout details.
-3. Viewing logged workouts.
-4. Simple user interface.
+## Project Structure
 
+```
+workout-logger/
+├── frontend/
+│   ├── node_modules/
+│   ├── public/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── App.js
+│   │   ├── index.js
+│   │   ├── index.css
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── .gitignore
+│   ├── README.md
+├── backend/
+│   ├── venv/
+│   ├── app.py
+│   ├── requirements.txt
+│   ├── .gitignore
+│   ├── README.md
+```
 
-## Features
+## Setup Instructions
 
-### User Registration and Authentication
-- Email and password registration and login.
-- No email verification initially.
+### Frontend
 
-### Workout Logging
-- Log workout details:
-  - Workout Type (e.g., push, pull, legs, full body)
-  - Exercise
-  - Sets
-  - Reps
-  - Weight
-  - Date
-- Custom exercises.
+1. Navigate to the frontend directory:
+    ```bash
+    cd frontend
+    ```
+2. Install dependencies:
+    ```bash
+    npm install
+    ```
+3. Start the development server:
+    ```bash
+    npm start
+    ```
 
-### Progress Tracking
-- Display progress using graphs and tables.
-- Real-time data updates.
-- Line graphs for data visualization.
+For more detailed instructions, see the [Frontend README](frontend/README.md).
 
-### User Interface
-- Minimalistic and clean design with black, white, and gray color scheme.
+### Backend
 
-### Social Features
-- Share workouts and upload images.
-- Follow other users and view their progress (future iterations).
+1. Navigate to the backend directory:
+    ```bash
+    cd backend
+    ```
+2. Create a virtual environment:
+    ```bash
+    python3 -m venv venv
+    ```
+3. Activate the virtual environment:
+    ```bash
+    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+    ```
+4. Install dependencies:
+    ```bash
+    pip install -r requirements.txt
+    ```
+5. Run the Flask app:
+    ```bash
+    flask run
+    ```
 
-### Scalability
-- Initially designed for personal use and friends.
+For more detailed instructions, see the [Backend README](backend/README.md).
 
-### Admin Features
-- Optional admin interface for managing users and content (future iterations).
+## Contributing
 
-### Feedback and Support
-- Contact form and FAQ for user support (future iterations).
+Please read the [CONTRIBUTING.md](CONTRIBUTING.md) for details on the code of conduct and the process for submitting pull requests.
 
-### User Profile Management
-- Update personal information and profile pictures.
+## License
 
-### Search and Filter
-- Search and filter workout logs based on different criteria (e.g., date range, workout type).
-
-### Mobile Compatibility
-- Mobile-responsive design or mobile app in future iterations.
-
-## Technical Requirements
-
-### Frontend Framework
-- React.js
-
-### Backend Framework
-- Python with Flask or Django
-
-### Database System
-- PostgreSQL or MySQL
-
-### CI/CD
-- Implement best practices using AWS
-
-### Testing
-- Unit testing and integration testing
-
-### Deployment
-- Docker for containerization
-- AWS for hosting and managing the application
-- Terraform for infrastructure as code
-
-## Implementation Steps
-
-### 1. Setup GitHub Repository
-- Create a new GitHub repository.
-- Initialize the repository with a README file.
-- Clone the repository locally.
-- Create the project structure with separate folders for frontend and backend.
-
-### 2. Develop Frontend
-- Initialize React App using `create-react-app`.
-- Set up basic routing with `react-router-dom`.
-- Create components: Home, Register, Login, Dashboard, Navbar.
-- Manage authentication state with React Context API or Redux.
-- Set up Axios for making HTTP requests to the backend.
-
-### 3. Develop Backend
-- Initialize Flask App:
-  - Set up a virtual environment.
-  - Install Flask and other necessary dependencies.
-  - Create a basic Flask app structure.
-- Set up user authentication:
-  - Create user model and routes for registration and login.
-  - Use Flask-Login or JWT for managing user sessions.
-- Create workout logging functionality:
-  - Create workout model and routes for CRUD operations.
-  - Set up a database (SQLite for simplicity in version 1).
-- Implement API endpoints: `/register`, `/login`, `/workouts`.
-
-### 4. Setup Database
-- Create database schema with Users and Workouts tables.
-- Use Flask-Migrate to handle database migrations.
-
-### 5. Containerization and Deployment
-- Write Dockerfiles for frontend and backend.
-- Set up Docker Compose to manage both services.
-- Deploy the application using AWS services.
-- Set up a CI/CD pipeline with GitHub Actions.
-
-## API Integration Suggestions
-- **Exercise Database API**: Integrate with an API like ExerciseDB to fetch exercise details and information.
-- **Nutritional Information API**: Optionally, integrate with an API like Nutritionix to provide users with nutritional information for their meals and workouts.
-
-## Summary
-This README outlines the basic setup and initial implementation steps for developing the Workout Logger application. The project will be developed iteratively, starting with the core functionalities and progressively adding more features in future versions.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
