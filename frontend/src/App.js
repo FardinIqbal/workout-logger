@@ -1,7 +1,7 @@
 // frontend/src/App.js
 
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
 import Register from './components/Register';
 import Login from './components/Login';
@@ -18,14 +18,14 @@ const App = () => {
   return (
     <div>
       <Navbar />
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/register" component={Register} />
-        <Route path="/login" component={Login} />
-        <Route path="/dashboard" component={Dashboard} />
-        <Route path="/log-workout" component={LogWorkout} />
-        <Route path="/view-workouts" component={ViewWorkouts} />
-      </Switch>
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/log-workout" element={<LogWorkout />} />
+        <Route path="/view-workouts" element={<ViewWorkouts />} />
+      </Routes>
     </div>
   );
 };
