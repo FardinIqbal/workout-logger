@@ -1,11 +1,10 @@
 // frontend/src/components/ViewWorkouts.js
-
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 /**
  * ViewWorkouts component
- * Fetches and displays a list of logged workouts
+ * Fetches and displays logged workouts
  */
 const ViewWorkouts = () => {
   const [workouts, setWorkouts] = useState([]);
@@ -13,7 +12,7 @@ const ViewWorkouts = () => {
   useEffect(() => {
     const fetchWorkouts = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:5000/api/workouts');
+        const response = await axios.get('http://127.0.0.1:5000/api/view-workouts');
         setWorkouts(response.data);
       } catch (error) {
         console.error('There was an error fetching the workouts!', error);
@@ -26,18 +25,17 @@ const ViewWorkouts = () => {
   return (
     <div>
       <h2>View Workouts</h2>
-      <ul>
-        {workouts.map((workout, index) => (
-          <li key={index}>
-            <p>Type: {workout.workout_type}</p>
-            <p>Exercise: {workout.exercise}</p>
-            <p>Sets: {workout.sets}</p>
-            <p>Reps: {workout.reps}</p>
-            <p>Weight: {workout.weight}</p>
-            <p>Date: {workout.date}</p>
-          </li>
-        ))}
-      </ul>
+      {workouts.length > 0 ? (
+        <ul>
+          {workouts.map((workout, index) => (
+            <li key={index}>
+              <strong>{workout.workout_type}</strong>: {workout.exercise}, Sets: {workout.sets}, Reps: {workout.reps}, Weight: {workout.weight}kg, Date: {workout.date}
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p>No workouts logged yet.</p>
+      )}
     </div>
   );
 };

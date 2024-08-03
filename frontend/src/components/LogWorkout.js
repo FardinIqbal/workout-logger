@@ -1,5 +1,4 @@
 // frontend/src/components/LogWorkout.js
-
 import React, { useState } from 'react';
 import axios from 'axios';
 
@@ -18,7 +17,7 @@ const LogWorkout = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://127.0.0.1:5000/api/workouts', {
+      await axios.post('http://127.0.0.1:5000/api/log-workout', {
         workout_type: workoutType,
         exercise,
         sets,
@@ -75,6 +74,7 @@ const LogWorkout = () => {
           type="date"
           value={date}
           onChange={(e) => setDate(e.target.value)}
+          placeholder="Date"
           required
         />
         <button type="submit">Log Workout</button>
