@@ -1,11 +1,10 @@
 // frontend/src/components/Login.js
-
 import React, { useState } from 'react';
 import axios from 'axios';
 
 /**
  * Login component
- * Handles user login with email and password
+ * Allows users to log in to their account
  */
 const Login = () => {
   const [email, setEmail] = useState('');

@@ -1,11 +1,10 @@
 // frontend/src/components/Register.js
-
 import React, { useState } from 'react';
 import axios from 'axios';
 
 /**
  * Register component
- * Handles user registration with email and password
+ * Allows users to register an account
  */
 const Register = () => {
   const [email, setEmail] = useState('');
