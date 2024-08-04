@@ -12,7 +12,7 @@ const ViewWorkouts = () => {
   useEffect(() => {
     const fetchWorkouts = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:3000/workouts');
+        const response = await axios.get('http://127.0.0.1:5000/workouts');
         setWorkouts(response.data);
       } catch (error) {
         console.error('There was an error fetching the workouts!', error);

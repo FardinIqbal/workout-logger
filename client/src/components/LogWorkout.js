@@ -17,7 +17,7 @@ const LogWorkout = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://127.0.0.1:5000/workouts', {  // Changed port to 5000
+      await axios.post('http://127.0.0.1:5000/workouts', {
         workout_type: workoutType,
         exercise,
         sets,
