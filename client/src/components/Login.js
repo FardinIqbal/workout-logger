@@ -1,4 +1,3 @@
-// frontend/src/components/Login.js
 import React, { useState } from 'react';
 import axios from 'axios';
 
@@ -13,13 +12,12 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://127.0.0.1:5000/login', {
-        email,
-        password
-      });
+      const response = await axios.post('http://127.0.0.1:5000/login', { email, password });
+      localStorage.setItem('token', response.data.token);
       alert('Login successful!');
     } catch (error) {
       console.error('There was an error logging in!', error);
+      alert('Login failed. Please check your credentials and try again.');
     }
   };
 
@@ -47,4 +45,3 @@ const Login = () => {
   );
 };
 
-export default Login;
