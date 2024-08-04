@@ -9,12 +9,14 @@ The Workout Logger Application is a full-stack web application designed to help 
 - [Features](#features)
 - [Project Structure](#project-structure)
 - [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
+    - [Prerequisites](#prerequisites)
+    - [Installation](#installation)
 - [Running the Application](#running-the-application)
-  - [Running the Backend](#running-the-backend)
-  - [Running the Frontend](#running-the-frontend)
+    - [Running the Backend](#running-the-backend)
+    - [Running the Frontend](#running-the-frontend)
 - [Running Tests](#running-tests)
+- [Deployment](#deployment)
+- [Using Terraform](#using-terraform)
 - [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
@@ -22,18 +24,18 @@ The Workout Logger Application is a full-stack web application designed to help 
 ## Features
 
 - **User Authentication**
-  - Register and login with secure password handling
+    - Register and login with secure password handling
 - **Workout Logging**
-  - Log workout details including type, exercises, sets, reps, weight, and date
-  - View logged workouts
+    - Log workout details including type, exercises, sets, reps, weight, and date
+    - View logged workouts
 - **Data Visualization**
-  - Visualize workout data with charts
+    - Visualize workout data with charts
 - **User Profile Management**
-  - Update and view user profile information
+    - Update and view user profile information
 - **Social Features**
-  - Follow other users and view their workouts
+    - Follow other users and view their workouts
 - **Notifications**
-  - Receive notifications for new workouts or comments
+    - Receive notifications for new workouts or comments
 
 ## Project Structure
 
@@ -84,7 +86,7 @@ workout-logger/
 
 2. **Set up environment variables:**
 
-    Create a `.env` file in the root directory and add the following variables:
+   Create a `.env` file in the root directory and add the following variables:
 
     ~~~env
     DATABASE_USERNAME=postgres
@@ -151,6 +153,40 @@ cd client
 npm test
 ~~~
 
+## Deployment
+
+### Deploying to AWS
+
+1. **Set up AWS CLI and configure it:**
+
+    ~~~bash
+    aws configure
+    ~~~
+
+2. **Initialize and apply Terraform configuration:**
+
+    ~~~bash
+    cd terraform
+    terraform init
+    terraform apply
+    ~~~
+
+### Continuous Integration and Deployment
+
+The project uses AWS CodePipeline for CI/CD. Ensure your repository is connected to CodePipeline and follow the AWS CodePipeline setup instructions.
+
+## Using Terraform
+
+Terraform will be used to manage and provision AWS resources required for this project, including setting up:
+
+- AWS S3 buckets for storing static assets and backups
+- AWS IAM roles and policies for secure access management
+- AWS Lambda functions for serverless operations
+- AWS DynamoDB for scalable and flexible data storage
+- AWS ECS (Elastic Container Service) for container orchestration
+
+We will provide detailed Terraform configurations and instructions as we proceed with the implementation in the grand plan.
+
 ## Contributing
 
 Contributions are welcome! Please fork the repository and create a pull request with your changes.
@@ -161,4 +197,34 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Contact
 
-For any questions or inquiries, please contact [fardin.iqbal@stonybrook.edu](mailto:fardin.iqbal@stonybrook.edu).
+For any questions or inquiries, please contact [your-email@example.com](mailto:your-email@example.com).
+
+---
+
+## Grand Plan for Version 1: Workout Logging Application with Terraform
+
+### Step 1: Implement Docker Setup for Backend
+
+1. **Create Dockerfile for Rails Backend**
+2. **Create Docker Compose File**
+3. **Update Database Configuration**
+4. **Build and Run Docker Containers**
+
+### Step 2: Set Up Terraform for AWS Resources
+
+1. **Install Terraform**
+2. **Create Terraform Configuration**
+3. **Configure AWS Provider**
+4. **Initialize and Apply Terraform**
+
+### Step 3: Create AWS Lambda Function for Notifications
+
+1. **Set Up AWS CLI**
+2. **Create Lambda Function**
+3. **Create Deployment Package**
+4. **Deploy Lambda Function**
+
+### Step 4: Set Up CI/CD Pipeline with AWS CodePipeline and Terraform
+
+1. **Create Buildspec for CodeBuild**
+2. **Connect Terraform to AWS CodePipeline**
