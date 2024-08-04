@@ -1,4 +1,9 @@
 # app/models/workout.rb
 class Workout < ApplicationRecord
-  belongs_to :user
+  validates :workout_type, presence: true
+  validates :exercise, presence: true
+  validates :sets, presence: true
+  validates :reps, presence: true
+  validates :weight, presence: true
+  validates :date, presence: true
 end

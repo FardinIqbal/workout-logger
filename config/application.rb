@@ -1,3 +1,4 @@
+# config/application.rb
 require_relative "boot"
 
 require "rails/all"
@@ -28,5 +29,16 @@ module Backend
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    # CORS configuration
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins 'http://localhost:3000', 'http://192.168.1.163:3000'  # Add your React frontend URLs here
+        resource '*',
+                 headers: :any,
+                 methods: [:get, :post, :put, :patch, :delete, :options, :head],
+                 credentials: true
+      end
+    end
   end
 end
